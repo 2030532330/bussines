@@ -1,0 +1,258 @@
+:root {
+    --primary-color: #4285f4;
+    --secondary-color: #34a853;
+    --accent-color: #ea4335;
+    --light-gray: #f5f5f5;
+    --dark-gray: #333;
+    --border-radius: 6px;
+    --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --form-bg: rgba(255, 255, 255, 0.3);
+    --transition-time: 0.3s;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-gray);
+    background: #f9f9f9 url("../1.png") center/cover no-repeat fixed;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+/* H1标题动画 */
+@keyframes colorChange {
+    0% {
+        color: red;
+    }
+
+    25% {
+        color: blue;
+    }
+
+    50% {
+        color: green;
+    }
+
+    75% {
+        color: yellow;
+    }
+
+    100% {
+        color: red;
+    }
+}
+
+h1 {
+    animation: colorChange 6s infinite;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+/* 表单容器 */
+.form-container,
+.result-container {
+    background-color: var(--form-bg);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 20px;
+    backdrop-filter: blur(5px);
+    /* 添加毛玻璃效果 */
+}
+
+/* 表单元素 */
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.form-group label {
+    width: 100px;
+    font-weight: 600;
+    color: whitesmoke;
+}
+
+.form-control {
+    background-color: var(--form-bg);
+    flex: 1;
+    min-width: 200px;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 15px;
+    transition: border-color var(--transition-time);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
+}
+
+/* 下拉选择框 */
+select.form-control {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 15px;
+}
+
+/* 日期输入 */
+.date-input-container {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+}
+
+.date-input-overlay {
+    position: absolute;
+    inset: 0;
+    cursor: pointer;
+    z-index: 1;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 2;
+}
+
+input[type="date"].form-control {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+}
+
+/* 按钮 */
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-time);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #3367d6;
+    transform: translateY(-1px);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-secondary {
+    background-color: #f1f1f1;
+    color: var(--dark-gray);
+}
+
+.btn-secondary:hover {
+    background-color: #e0e0e0;
+}
+
+.btn-copy {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-copy:hover {
+    background-color: #2d9241;
+}
+
+.btn-copy:active {
+    background-color: #247a36;
+}
+
+/* 时间显示 */
+.todaytime {
+    margin-left: auto;
+    font-size: 20px;
+    color: black;
+    background-color: var(--form-bg);
+    padding: 8px 12px;
+    border-radius: var(--border-radius);
+    font-family: 'Courier New', monospace;
+    box-shadow: 0 1px 3px rgba(184, 54, 54, 0.1);
+    transition: all var(--transition-time) ease;
+}
+
+.todaytime:hover {
+    background-color: #eaeaea;
+    color: #333;
+    cursor: pointer;
+}
+
+/* 结果区域 */
+.result-container {
+    display: none;
+    margin-top: 20px;
+    position: relative;
+}
+
+.result-content {
+    white-space: pre-wrap;
+    font-family: 'Courier New', monospace;
+    background: var(--form-bg);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    margin-bottom: 15px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+    .form-group label {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .form-control,
+    .btn {
+        width: 100%;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .todaytime {
+        margin-left: 0;
+        margin-top: 10px;
+        text-align: center;
+        width: 100%;
+    }
+}
