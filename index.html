@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>行程信息单</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <h1>行程信息单</h1>
+
+    <div class="form-container">
+        <div class="form-group">
+            <label for="departureTime">出发时间</label>
+            <input type="date" class="form-control" name="departureTime" id="departureTime">
+        </div>
+
+        <div class="form-group">
+            <label for="arrivalTime">到达时间</label>
+            <input type="date" class="form-control" name="arrivalTime" id="arrivalTime">
+        </div>
+
+        <div class="form-group">
+            <label for="departureLocation">出发地点</label>
+            <input type="text" class="form-control" name="departureLocation" id="departureLocation"
+                placeholder="请输入出发地点">
+        </div>
+
+        <div class="form-group">
+            <label for="arrivalLocation">到达地点</label>
+            <input type="text" class="form-control" name="arrivalLocation" id="arrivalLocation" placeholder="请输入到达地点">
+        </div>
+
+        <div class="form-group">
+            <label for="jt">出行方式</label>
+            <select class="form-control" id="jt" name="jt">
+                <option value="高铁">高铁</option>
+                <option value="打车">打车</option>
+                <option value="顺风车">顺风车</option>
+                <option value="自驾">自驾</option>
+                <option value="住宿">住宿</option>
+                <option value="餐费">餐费</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="passengerCount">人数</label>
+            <input type="number" class="form-control" name="passengerCount" id="passengerCount" min="1" value="1">
+        </div>
+
+        <div class="form-group remarksSection" style="display: none;">
+            <label for="remarks">备注</label>
+            <input type="text" class="form-control" name="remarks" id="remarks" placeholder="填写同行人">
+        </div>
+
+        <div class="button-group">
+            <button id="submitBtn" class="btn btn-primary">提交</button>
+            <button id="resetBtn" class="btn btn-secondary">重置</button>
+            <p class="todaytime" id="timeDisplay">2025年12月29日13时29分34秒&ensp;&ensp;星期二</p>
+        </div>
+    </div>
+
+    <div class="result-container" id="resultContainer">
+        <div class="result-content" id="resultContent"></div>
+        <button class="btn btn-copy" id="copyBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                style="margin-right: 5px;">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            复制内容
+        </button>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
